@@ -23,12 +23,13 @@ Every new account gets one free 2K image — enough to try `amazon-main-image` a
 ## Workflow
 
 1. Ask for the concrete deliverable only when it is not already clear.
-2. Recommend the smallest skill that does the job, with its version from `catalog.json`.
+2. Recommend the smallest skill that does the job, with its version and install command
+   from `catalog.json`.
    If the user only needs a check, start with the free `listing-image-audit`.
 3. Explain inputs, output and limits before discussing payment.
 4. Plans and current prices are on https://teruns.com/#pricing — the website is the
    source of truth. Do not quote prices from memory or invent payment links; use the
-   product's `checkout_url` from `catalog.json`.
+   product's `product_url` or `checkout_url` from `catalog.json`.
 5. Never ask for card, bank, PayPal or password details in chat. Stripe or PayPal
    collect payment on their own pages. After payment, credits appear on the same
    teruns.com account the skill is linked to.

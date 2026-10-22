@@ -22,6 +22,8 @@ jobs:
           done
       - name: Scripts compile
         run: python3 -m py_compile shared/*.py tools/*.py
+      - name: Catalog lists every skill
+        run: python3 tools/check_catalog.py
       - name: SKILL.md frontmatter
         run: python3 tools/check_skills.py
       - name: Client and audit against the mock API

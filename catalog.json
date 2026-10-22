@@ -1,49 +1,124 @@
 {
-  "catalog_version": "2026-10-22.5",
+  "schema_version": 2,
+  "catalog_version": "2026-10-22.6",
   "storefront": "https://teruns.com",
   "pricing_url": "https://teruns.com/#pricing",
+  "checkout_url": "https://teruns.com/checkout",
+  "repository": "https://github.com/Haihe2026/teruns-ai-skills",
+  "install_all": "npx skills add Haihe2026/teruns-ai-skills",
+  "billing": {
+    "credits": "shared across all Teruns image skills",
+    "credits_per_image": { "2K": 1, "4K": 2 },
+    "free_trial": { "images": 1, "size": "2K", "per": "account" }
+  },
   "products": [
     {
-      "slug": "listing-studio",
-      "name": "Listing Studio",
+      "slug": "listing-image-set",
+      "collection": "listing-studio",
       "version": "0.2.0",
-      "summary": "Marketplace-compliant listing images from one product photo, for Amazon, Shopify, TikTok Shop and Etsy, in 2K or 4K.",
-      "product_url": "https://teruns.com/skills/listing-studio",
-      "checkout_url": "https://teruns.com/checkout?ref=listing-studio",
-      "billing": "credits",
-      "credits": "shared",
-      "credits_per_image": {
-        "2K": 1,
-        "4K": 2
+      "paid": true,
+      "order": 1,
+      "path": "skills/listing-image-set",
+      "install": "npx skills add Haihe2026/teruns-ai-skills --skill listing-image-set",
+      "product_url": "https://teruns.com/skills/listing-image-set",
+      "checkout_url": "https://teruns.com/checkout?ref=listing-image-set",
+      "images_per_run": "5-7",
+      "marketplaces": ["amazon", "shopify", "tiktok", "etsy"],
+      "name": {
+        "en": "Listing Image Set",
+        "de": "Listing-Bilderset",
+        "fr": "Jeu d'images de fiche",
+        "ja": "商品画像セット",
+        "zh": "Listing 整套商品图"
       },
-      "free_trial": {
-        "images": 1,
-        "size": "2K",
-        "per": "account"
+      "summary": {
+        "en": "A full, marketplace-compliant image set from one product photo: main, infographic, close-up, lifestyle, size and in-the-box, in 2K or 4K.",
+        "de": "Ein komplettes, regelkonformes Bilderset aus einem Produktfoto: Hauptbild, Infografik, Detail, Lifestyle, Maße und Lieferumfang, in 2K oder 4K.",
+        "fr": "Un jeu d'images complet et conforme à partir d'une photo : principale, infographie, gros plan, mise en situation, dimensions et contenu du colis, en 2K ou 4K.",
+        "ja": "商品写真 1 枚から規約に沿った画像一式：メイン、インフォグラフィック、クローズアップ、使用シーン、サイズ、同梱物。2K / 4K。",
+        "zh": "一张商品照片生成整套合规商品图：主图、卖点图、细节图、场景图、尺寸图、包装清单图，2K 或 4K。"
+      }
+    },
+    {
+      "slug": "amazon-main-image",
+      "collection": "listing-studio",
+      "version": "0.2.0",
+      "paid": true,
+      "order": 2,
+      "path": "skills/amazon-main-image",
+      "install": "npx skills add Haihe2026/teruns-ai-skills --skill amazon-main-image",
+      "product_url": "https://teruns.com/skills/amazon-main-image",
+      "checkout_url": "https://teruns.com/checkout?ref=amazon-main-image",
+      "images_per_run": "1",
+      "marketplaces": ["amazon"],
+      "name": {
+        "en": "Amazon Main Image",
+        "de": "Amazon-Hauptbild",
+        "fr": "Image principale Amazon",
+        "ja": "Amazon メイン画像",
+        "zh": "Amazon 白底主图"
       },
-      "skills": [
-        {
-          "name": "listing-image-set",
-          "path": "skills/listing-image-set",
-          "paid": true
-        },
-        {
-          "name": "amazon-main-image",
-          "path": "skills/amazon-main-image",
-          "paid": true
-        },
-        {
-          "name": "aplus-content",
-          "path": "skills/aplus-content",
-          "paid": true
-        },
-        {
-          "name": "listing-image-audit",
-          "path": "skills/listing-image-audit",
-          "paid": false
-        }
-      ]
+      "summary": {
+        "en": "One Amazon main image on pure white RGB 255, product filling about 85% of the frame, no text or props, checked before delivery.",
+        "de": "Ein Amazon-Hauptbild auf reinem Weiß (RGB 255), Produkt füllt ca. 85 % des Bildes, ohne Text oder Requisiten, vor der Übergabe geprüft.",
+        "fr": "Une image principale Amazon sur blanc pur RVB 255, produit sur environ 85 % du cadre, sans texte ni accessoires, vérifiée avant livraison.",
+        "ja": "純白 RGB 255 背景、商品が画面の約 85%、文字・小物なしの Amazon メイン画像を 1 枚。納品前にチェック済み。",
+        "zh": "一张 Amazon 主图：纯白 RGB 255 背景，商品约占画面 85%，无文字无道具，交付前自动检查。"
+      }
+    },
+    {
+      "slug": "aplus-content",
+      "collection": "listing-studio",
+      "version": "0.2.0",
+      "paid": true,
+      "order": 3,
+      "path": "skills/aplus-content",
+      "install": "npx skills add Haihe2026/teruns-ai-skills --skill aplus-content",
+      "product_url": "https://teruns.com/skills/aplus-content",
+      "checkout_url": "https://teruns.com/checkout?ref=aplus-content",
+      "images_per_run": "5-9",
+      "marketplaces": ["amazon"],
+      "name": {
+        "en": "Amazon A+ Content",
+        "de": "Amazon A+ Inhalte",
+        "fr": "Contenu A+ Amazon",
+        "ja": "Amazon A+ コンテンツ",
+        "zh": "Amazon A+ 详情页"
+      },
+      "summary": {
+        "en": "A+ module images at exact sizes with the same product in every module, plus headline and body copy in your store's language.",
+        "de": "A+-Modulbilder in exakten Größen mit identischem Produkt in jedem Modul, dazu Überschriften und Texte in der Sprache Ihres Shops.",
+        "fr": "Images de modules A+ aux tailles exactes, même produit dans chaque module, avec titres et textes dans la langue de votre boutique.",
+        "ja": "正確なサイズの A+ モジュール画像（全モジュールで同じ商品）と、ストアの言語の見出し・本文。",
+        "zh": "精确尺寸的 A+ 模块图，每个模块商品一致，并附店铺语言的标题和正文文案。"
+      }
+    },
+    {
+      "slug": "listing-image-audit",
+      "collection": "listing-studio",
+      "version": "0.2.0",
+      "paid": false,
+      "order": 4,
+      "path": "skills/listing-image-audit",
+      "install": "npx skills add Haihe2026/teruns-ai-skills --skill listing-image-audit",
+      "product_url": "https://teruns.com/skills/listing-image-audit",
+      "checkout_url": null,
+      "images_per_run": "0",
+      "marketplaces": ["amazon", "shopify", "tiktok", "etsy"],
+      "name": {
+        "en": "Listing Image Audit",
+        "de": "Listing-Bildprüfung",
+        "fr": "Audit des images de fiche",
+        "ja": "商品画像チェック",
+        "zh": "商品图合规体检"
+      },
+      "summary": {
+        "en": "Free, offline check of your existing listing images: size, format, pure-white main background, product fill, transparency and missing image types.",
+        "de": "Kostenlose Offline-Prüfung Ihrer Bilder: Größe, Format, rein weißer Hintergrund, Bildfüllung, Transparenz und fehlende Bildtypen.",
+        "fr": "Vérification gratuite et hors ligne de vos images : taille, format, fond blanc pur, remplissage, transparence et types d'images manquants.",
+        "ja": "既存の商品画像を無料・オフラインでチェック：サイズ、形式、純白背景、占有率、透過、不足している画像の種類。",
+        "zh": "免费离线体检现有商品图：尺寸、格式、主图纯白底、商品占比、透明背景、缺少的图类型。"
+      }
     }
-  ],
-  "checkout_url": "https://teruns.com/checkout"
+  ]
 }
