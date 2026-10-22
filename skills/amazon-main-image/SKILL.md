@@ -6,8 +6,8 @@ description: Create or fix an Amazon main image from a real product photo — pu
 # Amazon Main Image
 
 Produce one Amazon-compliant main image from the user's product photo, or replace a main
-image that fails Amazon's rules. Rendering costs Teruns credits (2K = 1, 4K = 2).
-Checking is free and offline.
+image that fails Amazon's rules. Rendering costs Teruns credits (2K = 1, 4K = 2); every new Teruns account gets one
+free 2K image, which covers this skill completely. Checking is free and offline.
 
 Reply in the language the user writes in. Scripts are in this skill's folder:
 `python3 <this-skill-folder>/scripts/...`.
@@ -28,7 +28,8 @@ Reply in the language the user writes in. Scripts are in this skill's folder:
    around the product, props, hands, packaging, watermarks, inset images, a drawing
    instead of a photo. If it passes, say so and stop — no credits needed.
 
-3. **Confirm cost.** "1 image × 1 credit (2K)". Get a clear yes.
+3. **Confirm cost.** "1 image × 1 credit (2K)" — or "free" if `balance` shows
+   `trial_images: 1` and the size is 2K (the trial does not cover 4K). Get a clear yes.
 
 4. **Account.** Run `scripts/teruns_client.py balance`. Exit 2 → `login --start
    --skill amazon-main-image`, show `verify_url` and `user_code`, then `login --wait`.
@@ -55,7 +56,8 @@ Reply in the language the user writes in. Scripts are in this skill's folder:
 
 Exit codes from `teruns_client.py`: 0 ok · 2 login needed · 3 not enough credits (show
 `checkout_url`; after the user pays, rerun with the `--request-id` from the output) ·
-1 error (retry once with the same `--request-id`). Never ask for payment details in chat.
+1 error (retry once with the same `--request-id`). If exit 3 has `reason: trial_2k_only`,
+offer the same image at 2K for free. Never ask for payment details in chat.
 
 ## Amazon main image rules used here
 

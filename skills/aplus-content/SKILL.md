@@ -8,7 +8,7 @@ description: Plan and produce Amazon A+ Content (Enhanced Brand Content) — mod
 Build an A+ page: choose modules, write the copy, and render each module image at its
 exact size with the product kept identical across all of them. Copy and planning are
 free; each module image costs Teruns credits (2K = 1, 4K = 2; A+ sizes are small, so 2K
-is enough).
+is enough). A new account's one free 2K image covers the header module.
 
 Reply in the language the user writes in. Headlines, body copy and any text inside
 images use the store's language (`references/platform-rules.md`).

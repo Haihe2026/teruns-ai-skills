@@ -116,6 +116,7 @@ def handle_common(status: int, payload: dict, extra: dict | None = None) -> None
              "next": "run: teruns_client.py login --start", **extra}, 2)
     if status == 402:
         out({"status": "insufficient_credits",
+             "reason": payload.get("error", "insufficient_credits"),
              "checkout_url": payload.get("checkout_url", "https://teruns.com/#pricing"),
              "credits_needed": payload.get("credits_needed"),
              "credits_left": payload.get("credits_left"), **extra}, 3)
@@ -155,7 +156,7 @@ def cmd_login(a: argparse.Namespace) -> None:
                         "saved_at": int(time.time())})
             pending.unlink(missing_ok=True)
             out({"status": "logged_in", "account": p.get("account"),
-                 "credits": p.get("credits")})
+                 "credits": p.get("credits"), "trial_images": p.get("trial_images", 0)})
         if status in (400, 410) and p.get("error") in ("expired_token", "access_denied"):
             pending.unlink(missing_ok=True)
             out({"status": "error", "error": p["error"],
@@ -175,7 +176,8 @@ def cmd_logout(_: argparse.Namespace) -> None:
 def cmd_balance(_: argparse.Namespace) -> None:
     status, p = request("GET", "/balance")
     handle_common(status, p)
-    out({"status": "ok", "credits": p.get("credits"), "plan": p.get("plan"),
+    out({"status": "ok", "credits": p.get("credits"),
+         "trial_images": p.get("trial_images", 0), "plan": p.get("plan"),
          "renews_at": p.get("renews_at"), "pricing_url": p.get("pricing_url")})
 
 
@@ -247,7 +249,8 @@ def cmd_generate(a: argparse.Namespace) -> None:
         out({"status": "error", "error": "no_image_payload", "request_id": key}, 1)
     out({"status": "ok", "file": str(dest), "width": img.get("width"),
          "height": img.get("height"), "credits_charged": p.get("credits_charged"),
-         "credits_left": p.get("credits_left"), "request_id": key})
+         "credits_left": p.get("credits_left"), "trial_used": p.get("trial_used", False),
+         "trial_images_left": p.get("trial_images_left", 0), "request_id": key})
 
 
 def main() -> None:

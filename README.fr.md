@@ -15,6 +15,7 @@ qui lit `SKILL.md`. Sortie 2K ou 4K, texte dans la langue de votre boutique.
 | [`teruns-catalog`](skills/teruns-catalog/SKILL.md) | Aide à choisir le bon skill | Gratuit |
 
 Crédits : **image 2K = 1 crédit, image 4K = 2 crédits.** Les rendus échoués ne sont pas facturés.
+**Votre première image 2K est offerte** : chaque nouveau compte teruns.com en reçoit une.
 Offres : [teruns.com/#pricing](https://teruns.com/#pricing).
 
 ## Installation

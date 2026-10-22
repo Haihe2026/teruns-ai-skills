@@ -7,8 +7,8 @@ description: Turn one real product photo into a full, marketplace-compliant list
 
 Make a complete set of listing images from the user's own product photo. You plan the set,
 write each prompt, and render through the Teruns API with `scripts/teruns_client.py`.
-Rendering costs Teruns credits (2K = 1 credit, 4K = 2 credits per image). Planning,
-checking and fixing prompts cost nothing.
+Rendering costs Teruns credits (2K = 1 credit, 4K = 2 credits per image). Every new
+Teruns account gets **one free 2K image**. Planning, checking and fixing prompts cost nothing.
 
 Reply in the language the user writes in. Text drawn inside images follows the store's
 language instead (see `references/platform-rules.md`).
@@ -57,20 +57,22 @@ Use the default plan for the store:
 | 6 | `lifestyle` (second scene) or `comparison` | | `in_the_box` | |
 | 7 | `in_the_box` | | | |
 
-State the total cost, for example "7 images × 1 credit = 7 credits (2K)", and ask for a
-clear yes before rendering. Drop or swap slots the user does not want.
+State the total cost, for example "7 images × 1 credit = 7 credits (2K); for a new
+account the first image is free, so 6", and ask for a clear yes before rendering. Drop or swap slots the user does not want.
 
 ### 3. Check the account
 
 Run `scripts/teruns_client.py balance`.
 
-- Exit 0: compare `credits` with the plan's cost. If short, say so and offer fewer slots
-  or a top-up link from step 5.
+- Exit 0: compare `credits` and `trial_images` with the plan's cost. If `trial_images`
+  is 1, the first 2K image is free: say so, and use it on the main image (slot 1) so
+  the user sees the quality before paying. The trial does not cover 4K; if the user
+  chose 4K and has no paid credits, offer the main image free at 2K. If credits are
+  short for the rest, offer fewer slots or the top-up link from step 5.
 - Exit 2 (`login_required`): run `scripts/teruns_client.py login --start --skill listing-image-set`.
   Give the user the `verify_url` and `user_code`, ask them to open it, sign in and approve.
   Then run `login --wait`. If it returns `still_pending`, wait for the user to say they
-  approved and run `login --wait` again. The account page on teruns.com shows any
-  trial credits; do not promise free credits yourself.
+  approved and run `login --wait` again. The result shows `trial_images`.
 
 ### 4. Render, main image first
 
@@ -106,7 +108,7 @@ invented claim appears, tell the user what is wrong and offer one re-render of t
 | --- | --- | --- |
 | 0 | `ok` | Continue. Note `credits_left`. |
 | 2 | `login_required` | Step 3 login, then retry the same command. |
-| 3 | `insufficient_credits` | Show `checkout_url`. Say the remaining slots will continue after payment. When the user says they paid, run `balance`, then rerun the same command with the `--request-id` from the error output. |
+| 3 | `insufficient_credits` | If `reason` is `trial_2k_only`, offer to render this image at 2K for free instead. Otherwise show `checkout_url`. Say the remaining slots will continue after payment. When the user says they paid, run `balance`, then rerun the same command with the `--request-id` from the error output. |
 | 1 | `error` | Show the error briefly. Network or 5xx: retry once with the same `--request-id` (never charged twice). `policy_violation`: rewrite the prompt. |
 
 Never ask for card or PayPal details in chat; payment happens only on teruns.com.

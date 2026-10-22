@@ -15,6 +15,7 @@ TikTok Shop und Etsy — direkt in Claude Code, Codex, Cursor oder jedem Agenten
 | [`teruns-catalog`](skills/teruns-catalog/SKILL.md) | Hilft bei der Wahl des passenden Skills | Kostenlos |
 
 Credits: **2K-Bild = 1 Credit, 4K-Bild = 2 Credits.** Fehlgeschlagene Bilder werden nicht berechnet.
+**Ihr erstes 2K-Bild ist kostenlos** — jedes neue teruns.com-Konto erhält eines.
 Tarife: [teruns.com/#pricing](https://teruns.com/#pricing).
 
 ## Installation

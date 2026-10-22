@@ -18,6 +18,7 @@ explain how access works. Reply in the language the user writes in.
 | Amazon A+ Content images and copy | `aplus-content` | about 5–9 images |
 
 Credits: a 2K image costs 1 credit, a 4K image 2 credits. Failed renders are not charged.
+Every new account gets one free 2K image — enough to try `amazon-main-image` at no cost.
 
 ## Workflow
 

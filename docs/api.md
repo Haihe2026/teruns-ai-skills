@@ -33,7 +33,8 @@ the skill shows a link, the user approves it on teruns.com, the skill receives a
 ```
 
 `verify_url` opens a page where the user signs in (or signs up), sees the `user_code`,
-and clicks Approve. New accounts receive the trial credits at this moment.
+and clicks Approve. The free trial (section 4) is granted the first time an account is
+approved.
 Record `skill` so conversions can be attributed per skill.
 
 ### `POST /device/token`
@@ -45,7 +46,7 @@ Record `skill` so conversions can be attributed per skill.
 | Status | Body | Meaning |
 | --- | --- | --- |
 | `428` | `{"error":"authorization_pending"}` | User has not approved yet; poll again after `interval` |
-| `200` | `{"access_token":"...","account":"j***@gmail.com","credits":5}` | Approved |
+| `200` | `{"access_token":"...","account":"j***@gmail.com","credits":0,"trial_images":1}` | Approved |
 | `410` | `{"error":"expired_token"}` | Code expired; start again |
 | `400` | `{"error":"access_denied"}` | User rejected |
 
@@ -57,8 +58,11 @@ and stored by the client at `~/.teruns/credentials.json` with mode 600.
 ### `GET /balance`
 
 ```json
-{ "credits": 92, "plan": "starter", "renews_at": "2026-11-22", "pricing_url": "https://teruns.com/#pricing" }
+{ "credits": 92, "trial_images": 0, "plan": "starter", "renews_at": "2026-11-22", "pricing_url": "https://teruns.com/#pricing" }
 ```
+
+`trial_images`: free 2K renders left (0 or 1, see section 4).
+
 
 ## 3. Generate one image
 
@@ -119,6 +123,8 @@ Field notes:
   "images": [{ "url": "https://cdn.teruns.com/out/abc.png", "width": 2000, "height": 2000 }],
   "credits_charged": 1,
   "credits_left": 91,
+  "trial_used": false,
+  "trial_images_left": 0,
   "request_id": "same-as-idempotency-key"
 }
 ```
@@ -132,6 +138,7 @@ Errors:
 | --- | --- |
 | `401` | `{"error":"invalid_token"}` |
 | `402` | `{"error":"insufficient_credits","credits_needed":1,"credits_left":0,"checkout_url":"https://teruns.com/checkout?plan=starter&ref=listing-image-set"}` |
+| `402` | `{"error":"trial_2k_only","credits_needed":2,"credits_left":0,"trial_images_left":1,"checkout_url":"..."}` — a 4K request when only the free 2K trial is left |
 | `413` | `{"error":"reference_too_large"}` |
 | `422` | `{"error":"policy_violation","detail":"..."}` — no charge |
 | `429` | `{"error":"rate_limited","retry_after":20}` |
@@ -141,7 +148,19 @@ Errors:
 After payment the site binds the purchase to the account and grants credits; the user
 returns to the agent and says "continue", and the skill retries the same request.
 
-## 4. Charging rules
+## 4. Free trial and charging rules
+
+Free trial: every account gets **one free 2K image**.
+
+- Granted once per account, the first time a device is approved for it. Require a
+  verified email before granting; also recommended: at most one trial per device and a
+  daily cap per IP, to stop throwaway accounts.
+- Used automatically by the first `2K` request (any slot), before paid credits.
+  The response then has `credits_charged: 0`, `trial_used: true`.
+- Not usable for `4K`. A `4K` request with no paid credits returns `402 trial_2k_only`.
+- Does not expire. Not refunded once an image is delivered.
+
+Charging rules:
 
 - Charge only after an image is delivered. Failed or refused generations are free.
 - One request = one image. A 7-image set is 7 requests, so a failure in the middle

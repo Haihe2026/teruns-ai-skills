@@ -15,6 +15,7 @@ Claude Code、Codex、Cursor など `SKILL.md` を読めるエージェントの
 | [`teruns-catalog`](skills/teruns-catalog/SKILL.md) | 最適な skill 選びを手伝います | 無料 |
 
 クレジット：**2K 画像 = 1、4K 画像 = 2。** 生成に失敗した場合は消費されません。
+**最初の 2K 画像 1 枚は無料**です（teruns.com の新規アカウントごとに 1 回）。
 プラン：[teruns.com/#pricing](https://teruns.com/#pricing)。
 
 ## インストール

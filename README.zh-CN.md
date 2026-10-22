@@ -15,6 +15,7 @@
 | [`teruns-catalog`](skills/teruns-catalog/SKILL.md) | 帮你选择合适的 skill | 免费 |
 
 点数：**2K 图 1 点，4K 图 2 点。** 生成失败不扣点。
+**首张 2K 图免费**——每个新的 teruns.com 账号赠送一次。
 套餐：[teruns.com/#pricing](https://teruns.com/#pricing)。
 
 ## 安装
