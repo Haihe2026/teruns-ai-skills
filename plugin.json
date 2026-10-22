@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "teruns-skill-systems",
+  "version": "0.1.0",
+  "description": "Curated, versioned AI skills for visual production, commerce operations and research workflows.",
+  "author": {
+    "name": "Teruns",
+    "url": "https://teruns.com"
+  },
+  "homepage": "https://teruns.com",
+  "repository": "https://github.com/Haihe2026/teruns-ai-skills",
+  "keywords": [
+    "ai-skills",
+    "productivity",
+    "commerce",
+    "creative-workflows"
+  ],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/teruns-catalog/SKILL.md",
+      "interface": {
+        "displayName": "Teruns Skill Systems",
+        "shortDescription": "Versioned AI skills for work that has to ship.",
+        "longDescription": "Browse the Teruns working library, select the right skill, and route paid access through teruns.com.",
+        "developerName": "Teruns",
+        "category": "Productivity",
+        "capabilities": [
+          "Read"
+        ],
+        "websiteURL": "https://teruns.com",
+        "privacyPolicyURL": "https://teruns.com/privacy",
+        "defaultPrompt": [
+          "Show me the Teruns skills that fit my task.",
+          "Help me choose a Teruns visual-production skill."
+        ],
+        "brandColor": "#84F4C5"
+      }
+    }
+  }
+}
+

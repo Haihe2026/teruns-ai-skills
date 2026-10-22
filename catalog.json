@@ -1,0 +1,32 @@
+{
+  "catalog_version": "2026-10-22.1",
+  "storefront": "https://teruns.com",
+  "pricing_url": "https://teruns.com/#pricing",
+  "products": [
+    {
+      "slug": "avatar-diy-master",
+      "name": "Avatar Studio",
+      "version": "1.0.0",
+      "checkout_url": "https://teruns.com/checkout?skill=avatar-diy-master"
+    },
+    {
+      "slug": "old-photo-restore-master",
+      "name": "Archive Restore",
+      "version": "1.0.0",
+      "checkout_url": "https://teruns.com/checkout?skill=old-photo-restore-master"
+    },
+    {
+      "slug": "temu-image-master",
+      "name": "Commerce Image Lab",
+      "version": "1.0.0",
+      "checkout_url": "https://teruns.com/checkout?skill=temu-image-master"
+    },
+    {
+      "slug": "teruns-narrative-radar",
+      "name": "Narrative Radar",
+      "version": "web",
+      "checkout_url": "https://teruns.com/radar"
+    }
+  ]
+}
+
