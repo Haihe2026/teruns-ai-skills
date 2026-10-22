@@ -1,0 +1,12 @@
+{
+  "name": "teruns",
+  "description": "Teruns AI Skills for ecommerce sellers",
+  "owner": { "name": "Teruns" },
+  "plugins": [
+    {
+      "name": "teruns-skill-systems",
+      "source": "./",
+      "description": "Listing Studio: compliant listing images for Amazon, Shopify, TikTok Shop and Etsy, plus a free image audit."
+    }
+  ]
+}

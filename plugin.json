@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "teruns-skill-systems",
-  "version": "0.1.0",
-  "description": "Curated, versioned AI skills for visual production, commerce operations and research workflows.",
+  "version": "0.2.0",
+  "description": "Listing Studio by Teruns: marketplace-compliant product listing images for Amazon, Shopify, TikTok Shop and Etsy from one product photo, plus a free offline image audit.",
   "author": {
     "name": "Teruns",
     "url": "https://teruns.com"
@@ -10,32 +10,38 @@
   "homepage": "https://teruns.com",
   "repository": "https://github.com/Haihe2026/teruns-ai-skills",
   "keywords": [
-    "ai-skills",
-    "productivity",
-    "commerce",
-    "creative-workflows"
+    "ecommerce",
+    "amazon",
+    "product-images",
+    "listing",
+    "a-plus-content",
+    "shopify",
+    "etsy",
+    "tiktok-shop"
   ],
   "extensions": {
     "com.openai": {
       "onboardingSkill": "./skills/teruns-catalog/SKILL.md",
       "interface": {
         "displayName": "Teruns Skill Systems",
-        "shortDescription": "Versioned AI skills for work that has to ship.",
-        "longDescription": "Browse the Teruns working library, select the right skill, and route paid access through teruns.com.",
+        "shortDescription": "Compliant listing images from one product photo.",
+        "longDescription": "Plan, render and check marketplace-ready product images for Amazon, Shopify, TikTok Shop and Etsy. The image audit is free and offline; rendering uses Teruns credits from teruns.com.",
         "developerName": "Teruns",
         "category": "Productivity",
         "capabilities": [
-          "Read"
+          "Read",
+          "Write"
         ],
         "websiteURL": "https://teruns.com",
         "privacyPolicyURL": "https://teruns.com/privacy",
         "defaultPrompt": [
-          "Show me the Teruns skills that fit my task.",
-          "Help me choose a Teruns visual-production skill."
+          "Check my product photos against Amazon's image rules.",
+          "Make an Amazon listing image set from this product photo.",
+          "Create a white-background Amazon main image from this photo."
         ],
         "brandColor": "#84F4C5"
       }
     }
-  }
+  },
+  "license": "MIT"
 }
-

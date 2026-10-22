@@ -1,0 +1,10 @@
+{
+  "name": "teruns-skill-systems",
+  "version": "0.2.0",
+  "description": "Listing Studio by Teruns: marketplace-compliant product listing images for Amazon, Shopify, TikTok Shop and Etsy from one product photo, plus a free offline image audit.",
+  "author": { "name": "Teruns", "url": "https://teruns.com" },
+  "homepage": "https://teruns.com",
+  "repository": "https://github.com/Haihe2026/teruns-ai-skills",
+  "license": "MIT",
+  "keywords": ["ecommerce", "amazon", "product-images", "listing", "a-plus-content", "shopify", "etsy", "tiktok-shop"]
+}
