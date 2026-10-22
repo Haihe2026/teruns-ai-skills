@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2026-10-22.4",
+  "catalog_version": "2026-10-22.5",
   "storefront": "https://teruns.com",
   "pricing_url": "https://teruns.com/#pricing",
   "products": [
@@ -8,12 +8,19 @@
       "name": "Listing Studio",
       "version": "0.2.0",
       "summary": "Marketplace-compliant listing images from one product photo, for Amazon, Shopify, TikTok Shop and Etsy, in 2K or 4K.",
+      "product_url": "https://teruns.com/skills/listing-studio",
+      "checkout_url": "https://teruns.com/checkout?ref=listing-studio",
       "billing": "credits",
+      "credits": "shared",
       "credits_per_image": {
         "2K": 1,
         "4K": 2
       },
-      "checkout_url": "https://teruns.com/checkout?skill=listing-studio",
+      "free_trial": {
+        "images": 1,
+        "size": "2K",
+        "per": "account"
+      },
       "skills": [
         {
           "name": "listing-image-set",
@@ -35,12 +42,8 @@
           "path": "skills/listing-image-audit",
           "paid": false
         }
-      ],
-      "free_trial": {
-        "images": 1,
-        "size": "2K",
-        "per": "account"
-      }
+      ]
     }
-  ]
+  ],
+  "checkout_url": "https://teruns.com/checkout"
 }

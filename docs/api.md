@@ -137,14 +137,17 @@ Errors:
 | Status | Body |
 | --- | --- |
 | `401` | `{"error":"invalid_token"}` |
-| `402` | `{"error":"insufficient_credits","credits_needed":1,"credits_left":0,"checkout_url":"https://teruns.com/checkout?plan=starter&ref=listing-image-set"}` |
+| `402` | `{"error":"insufficient_credits","credits_needed":1,"credits_left":0,"checkout_url":"https://teruns.com/checkout?ref=listing-image-set&need=1"}` |
 | `402` | `{"error":"trial_2k_only","credits_needed":2,"credits_left":0,"trial_images_left":1,"checkout_url":"..."}` — a 4K request when only the free 2K trial is left |
 | `413` | `{"error":"reference_too_large"}` |
 | `422` | `{"error":"policy_violation","detail":"..."}` — no charge |
+| `409` | `{"error":"request_in_progress"}` — same Idempotency-Key still rendering; retry later, no charge |
 | `429` | `{"error":"rate_limited","retry_after":20}` |
 | `5xx` | no charge; client may retry with the same Idempotency-Key |
 
-`checkout_url` should carry the source skill (`ref=`) so the site can attribute sales.
+`checkout_url` points to the one shared checkout for all image skills and carries the
+source skill: `https://teruns.com/checkout?ref=<skill>&need=<credits_needed>`. Credits are
+one balance per account, usable by every Teruns image skill.
 After payment the site binds the purchase to the account and grants credits; the user
 returns to the agent and says "continue", and the skill retries the same request.
 

@@ -96,7 +96,7 @@ class H(BaseHTTPRequestHandler):
                 return self.send(402, {"error": "trial_2k_only" if STATE["trial"] else "insufficient_credits",
                                        "credits_needed": cost, "credits_left": STATE["credits"],
                                        "trial_images_left": STATE["trial"],
-                                       "checkout_url": f"https://teruns.com/checkout?plan=starter&ref={b.get('skill')}"})
+                                       "checkout_url": f"https://teruns.com/checkout?ref={b.get('skill')}&need={cost}"})
             for f in ("prompt", "slot", "marketplace", "locale"):
                 if not b.get(f):
                     return self.send(422, {"error": "missing_field", "detail": f})
