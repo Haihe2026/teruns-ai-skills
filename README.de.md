@@ -1,5 +1,7 @@
 # Teruns AI Skills · Listing Studio
 
+[![check](https://github.com/Haihe2026/teruns-ai-skills/actions/workflows/check.yml/badge.svg)](https://github.com/Haihe2026/teruns-ai-skills/actions/workflows/check.yml) [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-2ea44f)](https://agentskills.io) [![Works with](https://img.shields.io/badge/works%20with-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20Cursor-555)](#installation) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 [English](README.md) · **Deutsch** · [Français](README.fr.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
 Aus einem echten Produktfoto werden regelkonforme Listing-Bilder für Amazon, Shopify,

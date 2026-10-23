@@ -1,10 +1,16 @@
 # Teruns AI Skills · Listing Studio
 
+[![check](https://github.com/Haihe2026/teruns-ai-skills/actions/workflows/check.yml/badge.svg)](https://github.com/Haihe2026/teruns-ai-skills/actions/workflows/check.yml) [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-2ea44f)](https://agentskills.io) [![Works with](https://img.shields.io/badge/works%20with-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20Cursor-555)](#install) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 **English** · [Deutsch](README.de.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
 Turn one real product photo into marketplace-compliant listing images — Amazon, Shopify,
 TikTok Shop and Etsy — inside Claude Code, Codex, Cursor or any agent that reads `SKILL.md`.
 2K or 4K output, with text in your store's language.
+
+**Who it's for:** Amazon FBA and FBM sellers, Shopify store owners, TikTok Shop and Etsy
+sellers, and agencies who need white-background main images, infographics, lifestyle shots
+and A+ Content without a photo studio.
 
 | Skill | What it does | Cost |
 | --- | --- | --- |
